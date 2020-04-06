@@ -1,0 +1,114 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200406190548
+Username: Bill-PC\Bill
+RunAs User: Bill-PC\Bill
+Machine: BILL-PC (Microsoft Windows NT 6.1.7601 Service Pack 1)
+Host Application: powershell.exe -ExecutionPolicy Bypass -NoExit -NoProfile -Command -
+Process ID: 320
+PSVersion: 5.1.14409.1005
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14409.1005
+BuildVersion: 10.0.14409.1005
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20200406190549
+Username: Bill-PC\Bill
+RunAs User: Bill-PC\Bill
+Machine: BILL-PC (Microsoft Windows NT 6.1.7601 Service Pack 1)
+Host Application: powershell.exe -ExecutionPolicy Bypass -NoExit -NoProfile -Command -
+Process ID: 320
+PSVersion: 5.1.14409.1005
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14409.1005
+BuildVersion: 10.0.14409.1005
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+**********************
+Command start time: 20200406190549
+**********************
+PS>CommandInvocation(Out-String): "Out-String"
+>> ParameterBinding(Out-String): name="InputObject"; value="The specified module 'PSReadline' was not loaded because no valid module file was found in any module directory."
+Import-Module : The specified module 'PSReadline' was not loaded because no valid module file was found in any module 
+directory.
+    + CategoryInfo          : ResourceUnavailable: (PSReadline:String) [Import-Module], FileNotFoundException
+    + FullyQualifiedErrorId : Modules_ModuleNotFound,Microsoft.PowerShell.Commands.ImportModuleCommand
+Import-Module : The specified module 'PSReadline' was not loaded because no valid module file was found in any module 
+directory.
+    + CategoryInfo          : ResourceUnavailable: (PSReadline:String) [Import-Module], FileNotFoundException
+    + FullyQualifiedErrorId : Modules_ModuleNotFound,Microsoft.PowerShell.Commands.ImportModuleCommand
+**********************
+Command start time: 20200406190551
+**********************
+PS>$pid
+320
+**********************
+Command start time: 20200406190551
+**********************
+PS>        function get-iehistory {
+>>         function get-iehistory {
+        [CmdletBinding()]
+        param ()
+>>         function get-iehistory {
+        [CmdletBinding()]
+        param ()
+        $shell = New-Object -ComObject Shell.Application
+        $hist = $shell.NameSpace(34)
+        $folder = $hist.Self
+>>         function get-iehistory {
+        [CmdletBinding()]
+        param ()
+        $shell = New-Object -ComObject Shell.Application
+        $hist = $shell.NameSpace(34)
+        $folder = $hist.Self
+        $hist.Items() | 
+        foreach {
+            if ($_.IsFolder) {
+            $siteFolder = $_.GetFolder
+            $siteFolder.Items() | 
+            foreach {
+                $site = $_
+>>         function get-iehistory {
+        [CmdletBinding()]
+        param ()
+        $shell = New-Object -ComObject Shell.Application
+        $hist = $shell.NameSpace(34)
+        $folder = $hist.Self
+        $hist.Items() | 
+        foreach {
+            if ($_.IsFolder) {
+            $siteFolder = $_.GetFolder
+            $siteFolder.Items() | 
+            foreach {
+                $site = $_
+                if ($site.IsFolder) {
+                $pageFolder  = $site.GetFolder
+                $pageFolder.Items() | 
+                foreach {
+                    $visit = New-Object -TypeName PSObject -Property @{        
+                        URL = $($pageFolder.GetDetailsOf($_,0))           
+                    }
+                    $visit
+                }
+                }
+            }
+            }
+        }
+        }
+        get-iehistory
+**********************
+Command start time: 20200406190601
+**********************
+PS>exit
+**********************
+Windows PowerShell transcript end
+End time: 20200406190601
+**********************
